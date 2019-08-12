@@ -23,24 +23,31 @@ const Layout = ({ children }) => {
     }
   `)
 
+  console.log("[Data:]", data)
+
   return (
     <>
       <Header siteTitle={data.site.siteMetadata.title} />
-      <div
+      <div>
+        <main>{children}</main>
+      </div>
+      <footer
         style={{
-          margin: `0 auto`,
-          maxWidth: 960,
-          padding: `0px 1.0875rem 1.45rem`,
-          paddingTop: 0,
+          height: 60,
+          display: "flex",
+          alignContent: "center",
+          alignItems: "center",
+          justifyContent: "flex-end",
+          backgroundColor: "#333",
+          color: "white",
+          margin: 0,
+          paddingRight: 70,
         }}
       >
-        <main>{children}</main>
-        <footer>
-          © {new Date().getFullYear()}, Built with
-          {` `}
-          <a href="https://www.gatsbyjs.org">Gatsby</a>
-        </footer>
-      </div>
+        <p style={{ padding: 0, margin: 0 }}>
+          © {new Date().getFullYear()}, Bold.org - a platform to help students fulfill their dreams
+        </p>
+      </footer>
     </>
   )
 }

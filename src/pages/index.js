@@ -1,34 +1,47 @@
 import React from "react"
-import { Link, navigate } from "gatsby"
+import { Link, navigate, useStaticQuery, graphql } from "gatsby"
 
 import Layout from "../components/layout"
-import Image from "../components/image"
 import SEO from "../components/seo"
-import Toggle from "../components/toggle";
+import Hero from "../components/Hero"
+import HeroText from "../components/HeroText"
+import HeroButton from "../components/HeroButton"
+import ScholarshipPreview from "../components/ScholarshipPreview"
 
-const loggedIn = true;
+// import {scholarships} from '../utils/scholarships-database.js'
+
+const loggedIn = true
+
+const HERO_IMAGE = graphql`
+  query HeroImage {
+    heroImage: file(relativePath: { eq: "students.png" }) {
+      childImageSharp {
+        fluid {
+          ...GatsbyImageSharpFluid
+        }
+      }
+    }
+  }
+`
+
+// console.log(scholarships);
 
 const IndexPage = () => {
+  const data = useStaticQuery(HERO_IMAGE)
+  !loggedIn && navigate("/login")
 
-  !loggedIn && navigate('/login');
-  
-  return  (
+  return (
     <Layout>
       <SEO title="Home" />
-      <h1>Hi people</h1>
-      <p>Welcome to your new Gatsby site.</p>
-      <p>Now go build something great.</p>
-      <Toggle></Toggle>
-      <div style={{ maxWidth: `300px`, marginBottom: `1.45rem` }}>
-        <Image />
-      </div>
-      This is the change
-      <Link to="/page-2/">Go to page 2</Link>
-      <Link to="/login/">Login</Link>
+      <Hero fluid={data.heroImage.childImageSharp.fluid}>
+        <HeroText />
+        <Link to="/login/">
+          <HeroButton>Sign Up Today</HeroButton>
+        </Link>
+      </Hero>
+      <ScholarshipPreview/>
     </Layout>
   )
-  
 }
-
 
 export default IndexPage

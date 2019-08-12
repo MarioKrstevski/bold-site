@@ -1,6 +1,23 @@
+const contentful = require('contentful')
+const config = require("./config.json");
+
+// Overwrite the Contentful config with environment variables if they exist
+const contentfulConfig = {
+  spaceId: config.CONTENTFUL_SPACE_ID || 'random' ,
+  accessToken: config.CONTENTFUL_DELIVERY_TOKEN || 'random',
+}
+
+const { spaceId, accessToken } = contentfulConfig
+
+if (!spaceId || !accessToken) {
+  throw new Error(
+    'Contentful spaceId and the delivery token need to be provided.'
+  )
+}
+
 module.exports = {
   siteMetadata: {
-    title: `Gatsby Default Starter`,
+    title: `Bold.org`,
     description: `Kick off your next, great Gatsby project with this default starter. This barebones starter ships with the main Gatsby configuration files you might need.`,
     author: `@gatsbyjs`,
   },
@@ -12,6 +29,10 @@ module.exports = {
         name: `images`,
         path: `${__dirname}/src/images`,
       },
+    },
+    {
+      resolve: `gatsby-source-contentful`,
+      options: contentfulConfig,
     },
     `gatsby-transformer-sharp`,
     `gatsby-plugin-sharp`,
