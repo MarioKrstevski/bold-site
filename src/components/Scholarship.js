@@ -1,6 +1,7 @@
-import React from "react"
+import React, { useContext } from "react"
 import styled from "styled-components"
-import {Link} from 'gatsby'
+import { Link } from "gatsby"
+import AuthContext from "../context/AuthContext"
 
 const Card = styled.div`
   width: 320px;
@@ -18,7 +19,7 @@ const Price = styled.div`
   color: lightgreen;
 `
 const CardContent = styled.div`
-height: 270px;
+  height: 270px;
   padding: 20px;
 `
 
@@ -38,34 +39,46 @@ const ExpirationDate = styled.div`
 const Owner = styled.div`
   align-self: flex-end;
 `
-const Scholarship = ({
-  owner,
-  amount,
-  fieldOfStudy,
-  expirationDate,
-  numOfApplicants,
-}) => {
+const Scholarship = (props) => {
+
+  console.log("[Scholarship props]",props);
+  const { user } = useContext(AuthContext)
+  const {
+    owners,
+    applicants,
+    amount,
+    fieldOfStudy,
+    expirationDate,
+    numOfApplicants,
+  } = props;
   return (
     <Card>
       <ImagePlaceholder></ImagePlaceholder>
       <CardContent>
-        <div style={{
-            display: 'flex',
-            justifyContent:"space-between",
-            marginBottom: 5
-        }}>
-            <Price>${amount}</Price>
-            <ExpirationDate>{expirationDate}</ExpirationDate>
-
+        <div
+          style={{
+            display: "flex",
+            justifyContent: "space-between",
+            marginBottom: 5,
+          }}
+        >
+          <Price>${amount}</Price>
+          <ExpirationDate>{expirationDate}</ExpirationDate>
         </div>
         <Title>{fieldOfStudy}</Title>
         <Details>
-          <NumberApplicants><span role='img'  aria-label="fire">🔥</span>{numOfApplicants} applied</NumberApplicants>
-          <Owner>{owner}</Owner>
-          <Link to="/login">
-          <button> Apply </button>
-              
-          </Link>
+          <NumberApplicants>
+            <span role="img" aria-label="fire">
+              🔥
+            </span>
+            {numOfApplicants} applied
+          </NumberApplicants>
+          <Owner>{owners[0]}</Owner>
+          {applicants.includes(user.name) ? (
+            <button> Unapply </button>
+          ) : (
+            <button> Apply </button>
+          )}
         </Details>
       </CardContent>
     </Card>

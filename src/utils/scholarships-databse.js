@@ -1,6 +1,8 @@
 export const scholarships = [
     {
-        owner:"Diane Donor",
+        owners: ["Diane Donor"],
+        applicants:[],
+        id:'a',
         company: "RecyCorp",
         amount: 30000,
         fieldOfStudy: "Innovative research in sustainable energy, recycling and or other impactful environmental causes",
@@ -8,7 +10,9 @@ export const scholarships = [
         numOfApplicants: 100,
     },
     {
-        owner:"Mario Krstevski",
+        owners:["Mario Krstevski"],
+        applicants:[],
+        id:'b',
         company:"JobFinder",
         amount: 50000,
         fieldOfStudy: "digital marketing, computer science, machine learning",
@@ -16,7 +20,9 @@ export const scholarships = [
         numOfApplicants: 122,
     },
     {
-        owner:"Bojan Krstevski",
+        id:'c',
+        applicants:[],
+        owners:["Bojan Krstevski"],
         company:"Barmen",
         amount: 10000,
         fieldOfStudy: "gastronomy",
