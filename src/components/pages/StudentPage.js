@@ -1,9 +1,7 @@
-import React from 'react';
+import React from "react"
 
-function StudentPage(){ 
-
-    return 'Student View'
-
+function StudentPage() {
+  return "Student View"
 }
 
-export default StudentPage;
+export default StudentPage

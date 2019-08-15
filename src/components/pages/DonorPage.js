@@ -1,9 +1,7 @@
-import React from 'react';
+import React from "react"
 
-function DonorPage(){ 
-
-    return 'Donor View'
-
+function DonorPage() {
+  return "Donor View"
 }
 
-export default DonorPage;
+export default DonorPage

@@ -3,18 +3,16 @@ import { navigate } from "gatsby"
 import PropTypes from "prop-types"
 import React, { useState, useEffect, useContext } from "react"
 import AuthContext from "../context/AuthContext"
+import { defaultUser, isBrowser } from '../utils/auth-service';
 
-const Header = ({ siteTitle }) => {
+const UserHeader = ({ siteTitle }) => {
   const { user, setUser } = useContext(AuthContext)
   const logout = () => {
-    setUser({
-      name: "Visitor",
-      token: null,
-      role: "visitor",
-      isAuthenticated: false,
-    })
-
+    if (!isBrowser) return
+    setUser(defaultUser);
     navigate("/")
+
+    return null;
   }
   return (
     <header
@@ -28,7 +26,7 @@ const Header = ({ siteTitle }) => {
         zIndex: "10",
       }}
     >
-      <span style={{ color: "white" }}> Hello, you are a {user.name} </span>
+      <span style={{ color: "white" }}> Hello, you are {user.name} </span>
       <Link to="/app/student">
         <button>Student Part</button>
       </Link>
@@ -43,12 +41,12 @@ const Header = ({ siteTitle }) => {
   )
 }
 
-Header.propTypes = {
+UserHeader.propTypes = {
   siteTitle: PropTypes.string,
 }
 
-Header.defaultProps = {
+UserHeader.defaultProps = {
   siteTitle: ``,
 }
 
-export default Header
+export default UserHeader

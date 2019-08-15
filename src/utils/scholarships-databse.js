@@ -1,7 +1,7 @@
-export scholarships = [
+export const scholarships = [
     {
         owner:"Diane Donor",
-        company: "RecyCorp"
+        company: "RecyCorp",
         amount: 30000,
         fieldOfStudy: "Innovative research in sustainable energy, recycling and or other impactful environmental causes",
         exparationDate: "21.09.2020",

@@ -39,7 +39,7 @@ const IndexPage = () => {
           <HeroButton>Sign Up Today</HeroButton>
         </Link>
       </Hero>
-      <ScholarshipPreview/>
+      <ScholarshipPreview />
     </Layout>
   )
 }

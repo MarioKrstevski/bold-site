@@ -41,8 +41,7 @@ const BgImage = styled(Img)`
   }
 `
 
-const Hero = (props) => {
-
+const Hero = props => {
   return (
     <Container>
       <BgImage {...props} />

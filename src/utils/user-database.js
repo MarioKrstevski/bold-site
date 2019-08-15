@@ -6,7 +6,7 @@ export const users = [
         surname: "Doe",
         token:  "123456",
         role:  "student",
-        isAuth: false,
+        isAuthenticated: true,
         password:  "student123",
     },
     {
@@ -16,7 +16,7 @@ export const users = [
         surname: "Dooh",
         token:  "asdfgh",
         role:  "donor",
-        isAuth: false,
+        isAuthenticated: true,
         password:  "donor123",
     },
     {
@@ -26,7 +26,7 @@ export const users = [
         surname: "Admin",
         token:  "asd123",
         role:  "admin",
-        isAuth: false,
+        isAuthenticated: true,
         password:  "admin",
     }
 ]
