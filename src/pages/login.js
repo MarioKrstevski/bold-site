@@ -26,6 +26,7 @@ const LoginPage = () => (
       }}
       onSubmit={(values, { setSubmitting }) => {
         setTimeout(() => {
+
           navigate("/")
           setSubmitting(false);
         }, 400);
@@ -40,6 +41,7 @@ const LoginPage = () => (
           <button type="submit" disabled={isSubmitting}>
             Submit
           </button>
+          <Link to="/app"> Move </Link>
         </Form>
       )}
     </Formik>
