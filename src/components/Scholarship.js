@@ -74,11 +74,22 @@ const Scholarship = (props) => {
             {numOfApplicants} applied
           </NumberApplicants>
           <Owner>{owners[0]}</Owner>
-          {applicants.includes(user.name) ? (
+
+          { 
+          user.role === "donor" 
+          ? 
+          applicants.includes(user.name) ? (
+            <button> Unjoin </button>
+          ) : (
+            <button> Join </button>
+          )
+          :
+          applicants.includes(user.name) ? (
             <button> Unapply </button>
           ) : (
             <button> Apply </button>
-          )}
+          )
+          }
         </Details>
       </CardContent>
     </Card>
