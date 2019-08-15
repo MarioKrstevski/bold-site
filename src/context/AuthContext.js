@@ -2,9 +2,9 @@ import { createContext, useState } from "react"
 import React from "react"
 
 const defaultUser = {
-  name: "Visitor",
+  name: "Student",
   token: null,
-  role: "visitor",
+  role: "student",
   isAuthenticated: true,
 }
 

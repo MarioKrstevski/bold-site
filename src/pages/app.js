@@ -1,22 +1,28 @@
-import React from "react"
+import React, { useEffect, useContext } from "react"
 import { Router } from "@reach/router"
 import { Link, navigate, useStaticQuery } from "gatsby"
-import styled from 'styled-components'
-import Img from 'gatsby-image'
+import styled from "styled-components"
+import Img from "gatsby-image"
 
-import Layout from "../components/layout"
+import StudentPage from "../components/pages/StudentPage"
+import DonorPage from "../components/pages/DonorPage"
+import UserProfile from "../components/UserProfile"
+import ProtectedRoute from "../components/ProtectedRoute"
+
+import UserLayout from "../components/UserLayout"
 import SEO from "../components/seo"
+import AuthContext from "../context/AuthContext"
 
 const NotFoundContainer = styled.div`
   display: flex;
   flex-direction: column;
-  justify-content: center; 
+  justify-content: center;
   align-items: center;
   width: 100%;
   height: 100%;
   box-sizing: border-box;
   color: #965418;
-  background-color: #83D9C8;
+  background-color: #83d9c8;
 
   img {
     width: 36%;
@@ -25,15 +31,14 @@ const NotFoundContainer = styled.div`
     background-size: cover;
   }
 
-  h2{
-    margin-top:0;
-    text-align:center;
+  h2 {
+    margin-top: 0;
+    text-align: center;
   }
   p {
     padding: 0 20%;
   }
-`;
-
+`
 
 const NOT_FOUND_IMAGE = graphql`
   query NotFoundImage {
@@ -41,7 +46,6 @@ const NOT_FOUND_IMAGE = graphql`
       childImageSharp {
         fluid {
           src
-          
         }
       }
     }
@@ -50,9 +54,10 @@ const NOT_FOUND_IMAGE = graphql`
 
 const NotFound = () => {
   const data = useStaticQuery(NOT_FOUND_IMAGE)
-  const notFoundImage = data.notFoundImage.childImageSharp.fluid.src;
+  const notFoundImage = data.notFoundImage.childImageSharp.fluid.src
 
-  return (<NotFoundContainer>
+  return (
+    <NotFoundContainer>
       <div>
         <img src={notFoundImage} alt="404" />
       </div>
@@ -68,14 +73,38 @@ const NotFound = () => {
   )
 }
 
-const AppPage = () => (
-  <Layout>
-    <SEO title="404: Not found" />
-    <Router>
-      <NotFound default />
-    </Router>
-    <Link to="/">Homepage</Link>
-  </Layout>
-)
+const AppPage = () => {
+  const { user } = useContext(AuthContext)
+
+  useEffect(() => {})
+
+  return (
+    <UserLayout>
+      <SEO title="Dashboard" />
+      <Router>
+        <ProtectedRoute
+          path="/app/profile"
+          component={UserProfile}
+          allowed={["all"]}
+          authenticatedOnly
+        />
+        <ProtectedRoute
+          path="/app/student"
+          component={StudentPage}
+          allowed={["student"]}
+          authenticatedOnly
+        />
+        <ProtectedRoute
+          path="/app/donor"
+          component={DonorPage}
+          allowed={["donor"]}
+          authenticatedOnly
+        />
+        <NotFound default />
+      </Router>
+      <Link to="/">Homepage</Link>
+    </UserLayout>
+  )
+}
 
 export default AppPage
