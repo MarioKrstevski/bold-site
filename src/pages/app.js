@@ -1,8 +1,7 @@
-import React, { useEffect, useContext } from "react"
+import React from "react"
 import { Router } from "@reach/router"
-import { Link, navigate, useStaticQuery } from "gatsby"
+import { Link, useStaticQuery } from "gatsby"
 import styled from "styled-components"
-import Img from "gatsby-image"
 
 import StudentPage from "../components/pages/StudentPage"
 import DonorPage from "../components/pages/DonorPage"
@@ -11,7 +10,6 @@ import ProtectedRoute from "../components/ProtectedRoute"
 
 import UserLayout from "../components/UserLayout"
 import SEO from "../components/seo"
-import AuthContext from "../context/AuthContext"
 
 const NotFoundContainer = styled.div`
   display: flex;
@@ -74,9 +72,6 @@ const NotFound = () => {
 }
 
 const AppPage = () => {
-  const { user } = useContext(AuthContext)
-
-  useEffect(() => {})
 
   return (
     <UserLayout>
@@ -85,7 +80,7 @@ const AppPage = () => {
         <ProtectedRoute
           path="/app/profile"
           component={UserProfile}
-          allowed={["all"]}
+          allowed={["admin"]}
           authenticatedOnly
         />
         <ProtectedRoute

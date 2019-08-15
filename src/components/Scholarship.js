@@ -60,7 +60,7 @@ const Scholarship = ({
         </div>
         <Title>{fieldOfStudy}</Title>
         <Details>
-          <NumberApplicants>🔥{numOfApplicants} applied</NumberApplicants>
+          <NumberApplicants><span role='img'  aria-label="fire">🔥</span>{numOfApplicants} applied</NumberApplicants>
           <Owner>{owner}</Owner>
           <Link to="/login">
           <button> Apply </button>

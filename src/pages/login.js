@@ -8,7 +8,7 @@ import SEO from "../components/seo"
 import AuthContext from "../context/AuthContext"
 
 const LoginPage = () => {
-  const { user, setUser } = useContext(AuthContext)
+  const { setUser } = useContext(AuthContext)
 
   const handleSubmit = ({ email, password }) => {
     if (!isBrowser) return false

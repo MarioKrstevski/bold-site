@@ -1,18 +1,18 @@
 import { Link } from "@reach/router"
 import { navigate } from "gatsby"
 import PropTypes from "prop-types"
-import React, { useState, useEffect, useContext } from "react"
+import React, { useContext } from "react"
 import AuthContext from "../context/AuthContext"
-import { defaultUser, isBrowser } from '../utils/auth-service';
+import { defaultUser, isBrowser } from "../utils/auth-service"
 
 const UserHeader = ({ siteTitle }) => {
   const { user, setUser } = useContext(AuthContext)
   const logout = () => {
     if (!isBrowser) return
-    setUser(defaultUser);
+    setUser(defaultUser)
     navigate("/")
 
-    return null;
+    return null
   }
   return (
     <header
