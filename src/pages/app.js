@@ -80,7 +80,7 @@ const AppPage = () => {
         <ProtectedRoute
           path="/app/profile"
           component={UserProfile}
-          allowed={["admin"]}
+          allowed={["all"]}
           authenticatedOnly
         />
         <ProtectedRoute
