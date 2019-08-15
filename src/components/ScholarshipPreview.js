@@ -43,8 +43,9 @@ const Container = styled.div`
   background-color: #777;
 `
 
-const ScholarshipPreview = () => {
-  const scholarshipList = scholarships.map(scholarship => {
+const ScholarshipPreview = ({outsideScholarships}) => {
+  const scholarshipsArray = outsideScholarships || scholarships;
+  const scholarshipList = scholarshipsArray.map(scholarship => {
     return (
       <Scholarship
         key={scholarship.owner + scholarship.expirationDate }
