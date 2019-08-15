@@ -8,10 +8,9 @@
 import React, { useContext } from "react"
 import PropTypes from "prop-types"
 import { useStaticQuery, graphql, Link } from "gatsby"
-import AuthContext from "../context/AuthContext"
+import AuthContext from "../../context/AuthContext"
 
 import UserHeader from "./UserHeader"
-import "./layout.css"
 
 const UserLayout = ({ children }) => {
   const data = useStaticQuery(graphql`

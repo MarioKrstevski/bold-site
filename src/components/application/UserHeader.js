@@ -2,8 +2,8 @@ import { Link } from "@reach/router"
 import { navigate } from "gatsby"
 import PropTypes from "prop-types"
 import React, { useContext } from "react"
-import AuthContext from "../context/AuthContext"
-import { defaultUser, isBrowser } from "../utils/auth-service"
+import AuthContext from "../../context/AuthContext"
+import { defaultUser, isBrowser } from "../../utils/auth-service"
 
 const UserHeader = ({ siteTitle }) => {
   const { user, setUser } = useContext(AuthContext)

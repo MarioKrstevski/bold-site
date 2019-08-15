@@ -1,11 +1,11 @@
 import React from "react"
 import { Link, navigate, useStaticQuery, graphql } from "gatsby"
 
-import Layout from "../components/layout"
+import Layout from "../components/index/layout"
 import SEO from "../components/seo"
-import Hero from "../components/Hero"
-import HeroText from "../components/HeroText"
-import HeroButton from "../components/HeroButton"
+import Hero from "../components/index/Hero"
+import HeroText from "../components/index/HeroText"
+import HeroButton from "../components/index/HeroButton"
 import ScholarshipPreview from "../components/ScholarshipPreview"
 
 // import {scholarships} from '../utils/scholarships-database.js'

@@ -3,12 +3,12 @@ import { Router } from "@reach/router"
 import { Link, useStaticQuery } from "gatsby"
 import styled from "styled-components"
 
-import StudentPage from "../components/pages/StudentPage"
-import DonorPage from "../components/pages/DonorPage"
-import UserProfile from "../components/UserProfile"
+import StudentPage from "../components/application/StudentPage"
+import DonorPage from "../components/application/DonorPage"
+import UserProfile from "../components/application/UserProfile"
 import ProtectedRoute from "../components/ProtectedRoute"
 
-import UserLayout from "../components/UserLayout"
+import UserLayout from "../components/application/UserLayout"
 import SEO from "../components/seo"
 
 const NotFoundContainer = styled.div`
