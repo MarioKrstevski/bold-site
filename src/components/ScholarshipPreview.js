@@ -47,6 +47,7 @@ const ScholarshipPreview = () => {
   const scholarshipList = scholarships.map(scholarship => {
     return (
       <Scholarship
+        key={scholarship.owner + scholarship.expirationDate }
         owner={scholarship.owner}
         numOfApplicants={scholarship.numOfApplicants}
         expirationDate={scholarship.expirationDate}

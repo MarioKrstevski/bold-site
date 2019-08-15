@@ -1,11 +1,13 @@
 import { Link } from "gatsby"
 import PropTypes from "prop-types"
-import React, { useState, useEffect } from "react"
+import React, { useState, useEffect, useContext } from "react"
+import AuthContext from "../context/AuthContext";
 
 
 
 const Header = ({ siteTitle }) => {
 
+  const {user,setUser} = useContext(AuthContext)
   return (
     <header
       style={{
