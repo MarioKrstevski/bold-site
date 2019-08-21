@@ -28,11 +28,12 @@ const UserLayout = ({ children }) => {
   console.log("[AuthContext:] ", user)
   return (
     <>
-      {user.role && user.role === "visitor" ? (
+      {/* {user.role && user.role === "visitor" ? (
         <Link to="/">Go back to homepage</Link>
       ) : (
         <UserHeader siteTitle={data.site.siteMetadata.title} />
-      )}
+      )} */}
+      <UserHeader siteTitle={data.site.siteMetadata.title} />
       <div>
         <main>{children}</main>
       </div>
