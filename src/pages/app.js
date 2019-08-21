@@ -78,19 +78,25 @@ const AppPage = () => {
       <SEO title="Dashboard" />
       <Router>
         <ProtectedRoute
-          path="/app/profile"
+          path="/app/student/profile"
           component={UserProfile}
           allowed={["all"]}
           authenticatedOnly
         />
         <ProtectedRoute
-          path="/app/student"
+          path="/app/donor/profile"
+          component={UserProfile}
+          allowed={["all"]}
+          authenticatedOnly
+        />
+        <ProtectedRoute
+          path="/app/student/dashboard"
           component={StudentPage}
           allowed={["student"]}
           authenticatedOnly
         />
         <ProtectedRoute
-          path="/app/donor"
+          path="/app/donor/dashboard"
           component={DonorPage}
           allowed={["donor"]}
           authenticatedOnly

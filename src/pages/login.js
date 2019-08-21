@@ -25,13 +25,13 @@ const LoginPage = () => {
 
       switch (found.role) {
         case "student":
-          navigate(`/app/student`)
+          navigate(`/app/student/dashboard`)
           break
         case "donor":
-          navigate(`/app/donor`)
+          navigate(`/app/donor/dashboard`)
           break
         default:
-          navigate(`/app/profile`)
+          navigate(`/app/${found.role}/profile`)
       }
 
       return null

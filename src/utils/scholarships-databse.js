@@ -2,6 +2,7 @@ export const scholarships = [
     {
         owners: ["Diane Donor"],
         applicants:[],
+        favored: [],
         id:'a',
         company: "RecyCorp",
         amount: 30000,
@@ -12,6 +13,7 @@ export const scholarships = [
     {
         owners:["Mario Krstevski"],
         applicants:[],
+        favored: [],
         id:'b',
         company:"JobFinder",
         amount: 50000,
@@ -22,6 +24,7 @@ export const scholarships = [
     {
         id:'c',
         applicants:[],
+        favored: [],
         owners:["Bojan Krstevski"],
         company:"Barmen",
         amount: 10000,
