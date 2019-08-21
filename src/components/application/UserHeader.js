@@ -27,42 +27,42 @@ const UserHeader = ({ siteTitle }) => {
       }}
     >
       <span style={{ color: "white" }}> Hello, you are {user.name} </span>
-      <Link to="/app/student/dashboard">
-        <button>Student Part</button>
-      </Link>
-      <Link to={`/app/${user.role}/profile`}>
-        <button>Profile Page</button>
-      </Link>
-      <Link to="/app/donor/dashboard">
-        <button>Donor Part</button>
-      </Link>
 
       {user.role === "student" && (
         <>
-        <Link to="/app/student/dashboard">
-          <button>Student Dashboard</button>
-        </Link>
+          <Link to="/app/student/dashboard">
+            <button style={{ backgroundColor: "#848484" }}>
+              Student Dashboard
+            </button>
+          </Link>
 
-        <Link to="/app/student/profile">
-          <button> Student Profile</button>
-        </Link>
-
+          <Link to="/app/student/profile">
+            <button style={{ backgroundColor: "#848484" }}>
+              {" "}
+              Student Profile
+            </button>
+          </Link>
         </>
       )}
 
       {user.role === "donor" && (
         <>
-        <Link to="/app/donor/dashboard">
-          <button>Donor Dashboard</button>
-        </Link>
+          <Link to="/app/donor/dashboard">
+            <button style={{ backgroundColor: "#848484" }}>
+              Donor Dashboard
+            </button>
+          </Link>
 
-        <Link to="/app/donor/profile">
-          <button>Donor Profile</button>
-        </Link>
-
+          <Link to="/app/donor/profile">
+            <button style={{ backgroundColor: "#848484" }}>
+              Donor Profile
+            </button>
+          </Link>
         </>
       )}
-      <button onClick={() => logout()}>Logout</button>
+      <button style={{ backgroundColor: "#848484" }} onClick={() => logout()}>
+        Logout
+      </button>
     </header>
   )
 }
