@@ -31,13 +31,13 @@ const UserHeader = ({ siteTitle }) => {
       {user.role === "student" && (
         <>
           <Link to="/app/student/dashboard">
-            <button style={{ backgroundColor: "#848484" }}>
+            <button>
               Student Dashboard
             </button>
           </Link>
 
           <Link to="/app/student/profile">
-            <button style={{ backgroundColor: "#848484" }}>
+            <button >
               {" "}
               Student Profile
             </button>
@@ -48,19 +48,19 @@ const UserHeader = ({ siteTitle }) => {
       {user.role === "donor" && (
         <>
           <Link to="/app/donor/dashboard">
-            <button style={{ backgroundColor: "#848484" }}>
+            <button >
               Donor Dashboard
             </button>
           </Link>
 
           <Link to="/app/donor/profile">
-            <button style={{ backgroundColor: "#848484" }}>
+            <button>
               Donor Profile
             </button>
           </Link>
         </>
       )}
-      <button style={{ backgroundColor: "#848484" }} onClick={() => logout()}>
+      <button  onClick={() => logout()}>
         Logout
       </button>
     </header>
