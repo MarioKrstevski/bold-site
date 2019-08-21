@@ -97,7 +97,6 @@ const AppPage = () => {
         />
         <NotFound default />
       </Router>
-      <Link to="/">Homepage</Link>
     </UserLayout>
   )
 }

@@ -4,6 +4,8 @@ import { Link, navigate } from "gatsby"
 import { isBrowser } from "../utils/auth-service"
 import { users } from "../utils/user-database"
 
+import '../utils/form.style.css'
+
 import SEO from "../components/seo"
 import AuthContext from "../context/AuthContext"
 
@@ -42,8 +44,7 @@ const LoginPage = () => {
     <>
       <SEO title="Login Page" />
 
-      <div>
-        <h1>Any place in your app!</h1>
+      <div className="loginForm">
         <Formik
           initialValues={{ email: "", password: "" }}
           validate={values => {
@@ -65,14 +66,14 @@ const LoginPage = () => {
         >
           {({ isSubmitting }) => (
             <Form>
-              <Field type="email" name="email" />
+              <Field type="email" name="email" placeholder="Email"/>
               <ErrorMessage name="email" component="div" />
-              <Field type="password" name="password" />
+              <Field type="password" name="password" placeholder="Password" />
               <ErrorMessage name="password" component="div" />
               <button type="submit" disabled={isSubmitting}>
-                Submit
+                Sign In
               </button>
-              <Link to="/app"> Move </Link>
+              <Link to="/app"> Move (bypass) </Link>
             </Form>
           )}
         </Formik>

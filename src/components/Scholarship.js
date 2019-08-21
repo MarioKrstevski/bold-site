@@ -8,6 +8,8 @@ const Card = styled.div`
   border-radius: 3px;
   border: 1px solid black;
   background-color: #15457e;
+  min-width: 300px;
+  margin:5px;
 `
 
 const ImagePlaceholder = styled.div`
@@ -39,9 +41,8 @@ const ExpirationDate = styled.div`
 const Owner = styled.div`
   align-self: flex-end;
 `
-const Scholarship = (props) => {
-
-  console.log("[Scholarship props]",props);
+const Scholarship = props => {
+  console.log("[Scholarship props]", props)
   const { user } = useContext(AuthContext)
   const {
     owners,
@@ -50,7 +51,7 @@ const Scholarship = (props) => {
     fieldOfStudy,
     expirationDate,
     numOfApplicants,
-  } = props;
+  } = props
   return (
     <Card>
       <ImagePlaceholder></ImagePlaceholder>
@@ -75,21 +76,17 @@ const Scholarship = (props) => {
           </NumberApplicants>
           <Owner>{owners[0]}</Owner>
 
-          { 
-          user.role === "donor" 
-          ? 
-          applicants.includes(user.name) ? (
-            <button> Unjoin </button>
-          ) : (
-            <button> Join </button>
-          )
-          :
-          applicants.includes(user.name) ? (
-            <button> Unapply </button>
+          {user.role === "donor" ? (
+            applicants.includes(user.name) ? (
+              <button> Exit </button>
+            ) : (
+              <button> Join </button>
+            )
+          ) : applicants.includes(user.name) ? (
+            <button> Cancel </button>
           ) : (
             <button> Apply </button>
-          )
-          }
+          )}
         </Details>
       </CardContent>
     </Card>

@@ -40,6 +40,11 @@ const ScholarshipContainer = styled.div`
   display: flex;
   justify-content: space-around;
   algin-items: center;
+  max-width: 1224px;
+  left:50%;
+  transform:translateX(-50%);
+  position: relative;
+
 `
 
 const Container = styled.div`
@@ -48,7 +53,7 @@ const Container = styled.div`
   background-color: #777;
 `
 
-const ScholarshipPreview = ({outsideScholarships}) => {
+const ScholarshipPreview = ({outsideScholarships, title}) => {
   console.log({outsideScholarships})
   const scholarshipsArray = outsideScholarships || scholarships;
   const scholarshipList = scholarshipsArray.map(scholarship => {
@@ -67,7 +72,7 @@ const ScholarshipPreview = ({outsideScholarships}) => {
 
   return (
     <Container>
-      <h2>Top Scholarships</h2>
+      <h2> {title || "Top Scholarships"}</h2>
       <ScholarshipContainer>{scholarshipList}</ScholarshipContainer>
     </Container>
   )

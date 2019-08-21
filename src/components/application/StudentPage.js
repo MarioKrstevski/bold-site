@@ -1,26 +1,29 @@
 import React from "react"
-import ScholarshipPreview from "../ScholarshipPreview"
+import SearchFilter from "./student/SearchFilter"
+import styled from 'styled-components'
 import { connect } from "react-redux"
 
 import { addScholarship, getScholarships } from "../../state/scholarships"
+import ScholarshipList from "./student/ScholarshipList";
+import Pagination from './student/Pagination'
+
+const StudentPageContainer = styled.div`
+  
+`
 
 function StudentPage({ scholarships, dispatch }) {
   console.log("From STUDENTS PAGE", { scholarships })
 
-  return <ScholarshipPreview outsideScholarships={scholarships}/>
+  return <StudentPageContainer>
+    <SearchFilter />
+    <ScholarshipList scholarships={scholarships} />
+    <Pagination size={5} />
+  </StudentPageContainer>
 }
 
 const mapStateToProps = ({ scholarships }) => ({
   scholarships,
 })
-
-const mapDispatchToProps = dispatch => {
-  return {
-    addScholarship: () => {
-      dispatch({ type: "ADD_SCHOLARSHIP" })
-    },
-  }
-}
 
 export default connect(
   mapStateToProps,
